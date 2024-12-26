@@ -1,0 +1,4 @@
+,Zhang¡¯s T cells,Kang¡¯s PBMCs,Zheng¡¯s PBMCs,Baron Human,Muraro,Segeratolpe,AMB,TM,Baron Mouse
+WCSGNet,0.825,0.939,0.761,0.986,0.973,0.994,1,0.958,0.981
+WCSGNet-LWT,0.846,0.941,0.789,0.985,0.971,0.994,1,0.956,0.981
+WCSGNet-UWA,0.848,0.938,0.792,0.986,0.973,0.994,1,0.958,0.982
