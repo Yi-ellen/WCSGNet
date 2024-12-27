@@ -445,6 +445,75 @@ The optional parameters are mostly the same as those in ewcsn_classify_test.py.
 
 This step generates the predicted results for the testing sets using EWCSN(UWA) and saves them in `result/preds_UWA`.  The results include `_Prediction.h5` and `*_F1.csv`.
 
-#### 4. Figures
+#### 4. Figures in this study
 
 > All drawing codes are from `src/Figures/`
+
+* Figure 2(A) and (B)
+
+  > src/Figures/Figure2AB.ipynb
+
+  
+
+  > (A) Performance comparison of eight baseline methods across eight scRNA-seq datasets.   
+  >
+  > (B) Sankey diagram of the Baron Human dataset under WCSGNet's 5-fold cross-validation.  
+
+* Figure 3(A-D)
+
+  > src/Figures/Figure3A-D.ipynb
+
+  
+
+  > Performance of WCSGNet with EWCSN and WCSN, along with an analysis of its performance and robustness using different high-confidence gene networks for enhancement.  
+
+* Figure 4(A) and (B)
+
+  > src/Figures/Figure4AB.ipynb
+
+  > Performance of WCSGNet with different edge weight representation methods, including the baseline method, LWT and UMA.  
+
+* Figure 5(A-N) 
+
+  > BaronHuman_analysis.ipynb
+  >
+  > src/Figures/R/Figure5A-M.R
+
+  >  Top degree gene analysis of WCSN for different cell types on the Baron Human dataset  
+
+* Figure 6(A-N)
+
+  > BaronHuman_analysis.ipynb
+  >
+  > src/Figures/R/Figure6A-M.R
+
+  > Top high-weight edges analysis of WCSNs for different cell types in the Baron Human dataset.   
+
+* Figure 7(A-N)
+
+  > BaronHuman_analysis.ipynb
+
+  >  T-SNE visualization and feature analysis of the Baron Human dataset using WCSGNet.  
+
+* Figure 8(A-H)
+
+  > src/Figures/AMB_analysis.ipynb
+  >
+  > src/Figures/R/Figure8A-D.R
+  >
+  > src/Figures/R/Figure8E.R
+  >
+  > src/Figures/R/Figure8F.R
+  >
+  > src/Figures/R/Figure8G.R
+  >
+  > src/Figures/R/Figure8H.R
+
+  > Analysis of top degree genes and high-weight edges in WCSN for Different Cell Types on the AMB Dataset. 
+
+* Figure 9(A) and (B)
+
+  > src/Figures/Figure9AB.ipynb
+
+  > Mean F1-score and accuracy comparison of WCSGNet on Muraro and Baron Mouse datasets curated with varying numbers of HVGs.
+
