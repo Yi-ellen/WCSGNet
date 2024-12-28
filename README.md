@@ -1,6 +1,6 @@
 ## WCSGNet
 
- In this work, we constructed Weighted Cell-Specific Networks (WCSN) based on highly variable genes, capturing both gene expression patterns and gene-gene interaction strengths. These networks are further refined by integrating high-confidence gene interaction data, enhancing their biological relevance. A graph neural network is then employed to extract features from the refined WCSN, enabling accurate cell type annotation. We term our model WCSGNet.
+ In this work, we constructed Weighted Cell-Specific Networks (WCSN) based on highly variable genes, capturing both gene expression patterns and gene-gene interaction strengths. A graph neural network is then employed to extract features from the  WCSN, enabling accurate cell type annotation. We term our model WCSGNet.
 
 ### 1. Platform and Dependency
 
@@ -45,14 +45,6 @@
 
   > This file can store the indices of the highly variable genes (eg. 2000) in the gene expression matrix for each dataset.
 
-* get_gene_ncbi.py
-
-  > This file generates the Entrez Gene IDs for each gene in the scRNA-seq dataset.
-
-* get_net_adj.py
-
-  > This file generates the high-confidence interaction subnet for all genes in the scRNA-seq dataset. The result is saved as `*_net_adj.npy` in the corresponding scRNA-seq dataset directory under `dataset/5fold_data/`. 
-
 * up_sample.py
 
   > This step performs up-sampling on cell types with fewer cells in the training set and generates the cell indices of the up-sampled training set. The result is saved as `*_train_index_imputed.npy` in the corresponding scRNA-seq dataset directory under `dataset/5fold_data/`. 
@@ -69,29 +61,17 @@
 
   > This file contains the code for the WCSGNet model.
 
-* datasets_ewcsn.py
-
-  > This file defines a custom PyTorch Geometric dataset class `MyDataset2`, which is designed to handle graph data. Its main functionalities include: supplementing WCSN with high-confidence interactions, where the weight values of the new edges are set to the mean weight of the existing edges. 
-
 * datasets_wcsn.py
 
   > This file defines a custom PyTorch Geometric dataset class `MyDataset`, which is designed to handle graph data. There is no need to supplement the WCSN; it directly reads the WCSN data. 
 
 * datasets_LWT.py
 
-  > This file defines a custom PyTorch Geometric dataset class `MyDataset2`, which is designed to handle graph data. Its main functionalities include: applying a logarithmic transformation to the WCSN weights and then supplementing WCSN with high-confidence interactions, where the weight values of the new edges are set to the mean weight of the existing edges. 
+  > This file defines a custom PyTorch Geometric dataset class `MyDataset2`, which is designed to handle graph data. Its main functionalities  include applying a logarithmic transformation to the WCSN weights.
 
 * datasets_UWA.py
 
-  > This file defines a custom PyTorch Geometric dataset class `MyDataset2`, which is designed to handle graph data. Its main functionalities include: setting all WCSN weights to 1 and then supplementing WCSN with high-confidence interactions, where the weight values of the new edges are also set to 1. 
-
-* ewcsn_classify_train.py
-
-  > This step generates the 5-fold training set models using EWCSN and saves them in `result/models`. 
-
-* ewcsn_classify_test.py
-
-  > This step generates the predicted results for the testing sets using EWCSN and saves them in `result/preds`.
+  > This file defines a custom PyTorch Geometric dataset class `MyDataset2`, which is designed to handle graph data. Its main functionalities include setting all WCSN weights to 1. 
 
 * wcsn_classify_train.py
 
@@ -101,21 +81,21 @@
 
   > This step generates the predicted results for the testing sets using WCSN and saves them in `result/preds`.
 
-* LWT_ewcsn_classify_train.py
+* LWT_wcsn_classify_train.py
 
-  > This step generates the 5-fold training set models using EWCSN(LWT) and saves them in `result/models_LWT`. 
+  > This step generates the 5-fold training set models using WCSN(LWT) and saves them in `result/models_LWT`. 
 
-* LWT_ewcsn_classify_test.py
+* LWT_wcsn_classify_test.py
 
-  > This step generates the predicted results for the testing sets using EWCSN(LWT) and saves them in `result/preds_LWT.
+  > This step generates the predicted results for the testing sets using WCSN(LWT) and saves them in `result/preds_LWT`.
 
-* UWA_ewcsn_classify_train.py
+* UWA_wcsn_classify_train.py
 
-  > This step generates the 5-fold training set models using EWCSN(UWA) and saves them in `result/models_UWA`. 
+  > This step generates the 5-fold training set models using WCSN(UWA) and saves them in `result/models_UWA`. 
 
-* UWA_ewcsn_classify_test.py
+* UWA_wcsn_classify_test.py
 
-  > This step generates the predicted results for the testing sets using EWCSN(UWA) and saves them in `result/preds_UWA`.
+  > This step generates the predicted results for the testing sets using WCSN(UWA) and saves them in `result/preds_UWA`.
 
 #### 2.2 data
 
@@ -125,23 +105,6 @@
 
   > The downloaded scRNA-seq datasets include: Muraro, Segerstolpe, Zheng 68k, Zhang_T, Kang, Baron, AMB, and TM.
 
-* Network:
-
-  > The downloaded high-confidence gene interaction data includes: HumanNet GSP, BIOGRID, and Alliance of Genome Resources. 
-
-* MGI
-
-  > Data from MGI.
-  >
-  > - **List of Mouse Genetic Markers (sorted alphabetically by marker symbol, tab-delimited)**
-  >   *(Includes withdrawn marker symbols)*
-  > - **MGI Marker Associations to Entrez Gene (tab-delimited)**
-
-* HGNC
-
-  > Data from HGNC
-  >
-  > * Current tab separated hgnc_complete_set file from HGNC
 
 #### 2.3 dataset
 
@@ -151,11 +114,10 @@
 
   > scRNA-seq_datasets: Preprocessed scRNA-seq datasets generated using the `.ipynb` files located in the `src/DataProcessing` directory. 
   >
-  > network:   Gene interaction files stored in TSV format. Each file contains two columns representing gene pairs, where the genes are identified using Entrez Gene IDs. 
-
+  
 * 5fold_data
 
-  > Store the data generated during the processing of each scRNA-seq dataset. This includes the five-fold splits of the dataset, the Entrez Gene IDs of genes, the filtered list of highly variable genes, the generated high-confidence interaction subnetworks, the indices obtained from up-sampling thetraining set, and the WCSNs (Weighted Cell Similarity Networks) generated for each fold of the training and testing sets. 
+  > Store the data generated during the processing of each scRNA-seq dataset. This includes the five-fold splits of the dataset, the filtered list of highly variable genes, the indices obtained from up-sampling thetraining set, and the WCSNs generated for each fold of the training and testing sets. 
 
 #### 2.4 result
 
@@ -165,19 +127,19 @@
 
 * models
 
-  >  This folder contains the trained models and the models obtained from each fold of the cross validations by `src/ewcsn_classify_train.py` and `src/wcsn_classify_train.py`
+  >  This folder contains the trained models and the models obtained from each fold of the cross validations by  `src/wcsn_classify_train.py`
 
 * models_LWT
 
-  > This folder contains the trained models and the models obtained from each fold of the cross validations by `src/LWT_ewcsn_classify_train.py` 
+  > This folder contains the trained models and the models obtained from each fold of the cross validations by `src/LWT_wcsn_classify_train.py` 
 
 * models_UWA
 
-  > This folder contains the trained models and the models obtained from each fold of the cross validations by `src/UWA_ewcsn_classify_train.py` 
+  > This folder contains the trained models and the models obtained from each fold of the cross validations by `src/UWA_wcsn_classify_train.py` 
 
 * preds
 
-  >  This folder contains the predicted results generated by `src/ewcsn_classify_test.py` and `src/wcsn_classify_test.py` 
+  >  This folder contains the predicted results generated by `src/wcsn_classify_test.py` 
   
 * preds_LWT
 
@@ -201,25 +163,7 @@
 
  Save to the `data/scRNAseq_Benchmark_datasets` directory. 
 
-##### 3.1.2 Download high-confidence gene interaction data  
-
-> **HumanNet GSP**: Available for download from [HumanNet Search](https://www.inetbio.org/humannet/).
->
-> **BIOGRID v4.4.235**: Downloadable from the [BioGRID File Repository](https://downloads.thebiogrid.org/BioGRID/Release-Archive/BIOGRID-4.4.235/).
->
-> **Alliance of Genome Resources Molecular Interaction Datasets**: Human and mouse gene interaction data are accessible from the [Alliance of Genome Resources](https://www.alliancegenome.org/downloads#molecular-interactions).
-
- Save to the `data/Network` directory. 
-
-##### 3.1.3 Download HGNC and MGI
-
-> HGNC: https://www.genenames.org/download/archive/
->
-> MGI:  https://www.informatics.jax.org/downloads/reports/index.html
-
- Save to the `data/HGNC` and `data/MGI`directory. 
-
-##### 3.1.4 scRNA-seq preprocessing
+##### 3.1.2 scRNA-seq preprocessing
 
 * Initial preprocessing 
 
@@ -267,41 +211,6 @@
 
   This step generates a `.npy` file for each dataset, containing 2000 HVGs. The file stores the indices of the highly variable genes in the gene expression matrix.
 
-* Processing Gene Interaction Network Data
-
-  > src/DataProcessing/Gene_interaction.ipynb
-
-  This step processes the high-confidence gene interaction data obtained in 3.1.2. For each dataset, generate a gene interaction file in TSV format, containing two columns of genes represented by Entrez Gene IDs, and save the files in the `dataset/pre/network` directory.  The HumanNet GSP does not require processing.
-
-* Obtain Entrez Gene IDs for genes in different scRNA-seq  datasets
-
-  > ! python src/get_net_ncbi.py
-
-  Optional parameters
-
-  * -expr: Default='dataset/pre_data/scRNAseq_datasets/Muraro.npz'. Specify the input scRNA-seq dataset.
-  * -outdir: Default='dataset/5fold_data/'. Specify the output directory. 
-  * -gn: Default='hgnc'. Gene name format: 'hgnc', 'mgi', 'ensembl', or 'ncbi'.
-  * -species: Default='human'. Options: 'human' or 'mouse'.
-
-  This step retrieves the Entrez Gene IDs for each gene in the scRNA-seq dataset. If an ID is unavailable, it is set to `None`. The gene list is saved as `genes_ncbi.npy` in the corresponding scRNA-seq dataset directory under `dataset/5fold_data/`. 
-
-* Manually process the `genes_ncbi.npy` file for the mouse dataset. Based on searching MGI, modify a subset of Entrez Gene IDs that are `None`, and save the result as `genes_ncbi2.npy`. 
-
-  > src/DataProcessing/Mouse_genes_ncbi2.ipynb
-
-* Obtain the high-confidence interaction subnet for each gene in the scRNA-seq dataset.
-
-  > ! python src/get_net_adj.py
-
-  Optional parameters
-
-  * -expr: Default='dataset/pre_data/scRNAseq_datasets/Muraro.npz'. Specify the input scRNA-seq dataset.
-  * -net: Default='dataset/pre_data/network/HumanNet-GSP.tsv '. Specify the high-confidence gene interaction dataset.
-  * -outdir: Default='dataset/5fold_data/'. Specify the output directory. 
-  * -gt: Default='ncbi'. Options: 'ncbi' or 'ncbi2'.
-
-  This step retrieves the high-confidence interaction subnet for each gene in the scRNA-seq dataset. The result is saved as `*_net_adj.npy` in the corresponding scRNA-seq dataset directory under `dataset/5fold_data/`. 
 
 #### 3.2 WCSN Construction
 
@@ -333,51 +242,11 @@ Optional parameters
 * -ca: Default=0.01, Significance level.
 * --n_splits: Default=5,  Indicates Five-fold cross-validation.
 
-This step constructs a 5-fold WCSN based on highly variable genes for each scRNA-seq dataset's testing set. The graph for each testing set cell is saved as a `.pt` file in the `processed` folder of the corresponding fold (e.g., `train_f1`) within the `WCSN_a0.01_hvgs2000` folder, which is located under the corresponding dataset folder in `dataset/5fold_data/`. 
+This step constructs a 5-fold WCSN based on highly variable genes for each scRNA-seq dataset's testing set. The graph for each testing set cell is saved as a `.pt` file in the `processed` folder of the corresponding fold (e.g., `test_f1`) within the `WCSN_a0.01_hvgs2000` folder, which is located under the corresponding dataset folder in `dataset/5fold_data/`. 
 
 #### 3.3 Training and Prediction using 
 
-##### 3.3.1 Training and prediction using EWCSN
-
-**Training**
-
-> ! python src/ewcsn_classify_train.py
-
-Optional parameters
-
-* -expr: : Default='dataset/pre_data/scRNAseq_datasets/Muraro.npz'. Specify the input scRNA-seq dataset.
-* -net: Default='dataset/pre_data/network/HumanNet-GSP.tsv '. Specify the high-confidence gene interaction dataset.
-* -outdir: Default='result/models'. Specify the output directory. 
-* -ca: Default=0.01, Significance level.
-
-* -hvgs: Default=2000, The number of HVGs.
-* -bs: Default=32, The batch size of this training. 
-
- This step generates the 5-fold training set models and saves them in `result/models`. 
-
-**Testing**
-
-> ! python src/ewcsn_classify_test.py
-
-Optional parameters
-
-* -expr: : Default='dataset/pre_data/scRNAseq_datasets/Muraro.npz'. Specify the input scRNA-seq dataset.
-* -net: Default='dataset/pre_data/network/HumanNet-GSP.tsv '. Specify the high-confidence gene interaction dataset.
-* -outdir: Default='result/models'. Specify the output directory. 
-* -ca: Default=0.01, Significance level.
-
-* -hvgs: Default=2000,  The number of HVGs.
-* -bs: Default=32.
-
-This step generates the predicted results for the testing sets and saves them in `result/preds`.
-
-> The results include:
->
-> **`*_Prediction.h5`**: Contains the true labels and predicted labels for the test set cells, the probability matrix for each predicted cell type, and the cell embeddings for each cell.
->
-> **`*_F1.csv`**: Includes the accuracy, Mean F1-Score, and the F1-Score for each cell type.
-
-##### 3.3.2 Training and prediction using WCSN
+##### 3.3.1 Training and prediction using WCSN
 
 **Training**
 
@@ -407,113 +276,102 @@ Optional parameters
 * -hvgs: Default=2000,  The number of HVGs.
 * -bs: Default=32.
 
-This step generates the predicted results for the testing sets using WCSN and saves them in `result/preds`. The results include `_Prediction.h5` and `*_F1.csv`.
+This step generates the predicted results for the testing sets and saves them in `result/preds`.
 
-##### 3.3.3 Training and prediction using EWCSN(LWT)
+> The results include:
+>
+> **`*_Prediction.h5`**: Contains the true labels and predicted labels for the test set cells, the probability matrix for each predicted cell type, and the cell embeddings for each cell.
+>
+> **`*_F1.csv`**: Includes the accuracy, Mean F1-Score, and the F1-Score for each cell type.
 
-**Training**
-
-> ! python src/LWT_ewcsn_classify_train.py
-
-The optional parameters are mostly the same as those in ewcsn_classify_train.py.
-
- This step generates the 5-fold training set models using EWCSN(LWT) and saves them in `result/models_LWT`. 
-
-**Testing**
-
-> ! python src/LWT_ewcsn_classify_test.py
-
-The optional parameters are mostly the same as those in ewcsn_classify_test.py.
-
-This step generates the predicted results for the testing sets using EWCSN(LWT) and saves them in `result/preds_LWT`. The results include `_Prediction.h5` and `*_F1.csv`.
-
-##### 3.3.4 Training and prediction using EWCSN(UWA)
+##### 3.3.2 Training and prediction using WCSN(LWT)
 
 **Training**
 
-> ! python src/UWA_ewcsn_classify_train.py
+> ! python src/LWT_wcsn_classify_train.py
 
-The optional parameters are mostly the same as those in ewcsn_classify_train.py.
+The optional parameters are mostly the same as those in wcsn_classify_train.py.
 
- This step generates the 5-fold training set models using EWCSN(UWA) and saves them in `result/models_UWA`. 
+ This step generates the 5-fold training set models using WCSN(LWT) and saves them in `result/models_LWT`. 
 
 **Testing**
 
-> ! python src/UWA_ewcsn_classify_test.py
+> ! python src/LWT_wcsn_classify_test.py
 
-The optional parameters are mostly the same as those in ewcsn_classify_test.py.
+The optional parameters are mostly the same as those in wcsn_classify_test.py.
 
-This step generates the predicted results for the testing sets using EWCSN(UWA) and saves them in `result/preds_UWA`.  The results include `_Prediction.h5` and `*_F1.csv`.
+This step generates the predicted results for the testing sets using WCSN(LWT) and saves them in `result/preds_LWT`. The results include `*_Prediction.h5` and `*_F1.csv`.
+
+##### 3.3.4 Training and prediction using WCSN(UWA)
+
+**Training**
+
+> ! python src/UWA_wcsn_classify_train.py
+
+The optional parameters are mostly the same as those in wcsn_classify_train.py.
+
+ This step generates the 5-fold training set models using WCSN(UWA) and saves them in `result/models_UWA`. 
+
+**Testing**
+
+> ! python src/UWA_wcsn_classify_test.py
+
+The optional parameters are mostly the same as those in wcsn_classify_test.py.
+
+This step generates the predicted results for the testing sets using WCSN(UWA) and saves them in `result/preds_UWA`.  The results include `*_Prediction.h5` and `*_F1.csv`.
 
 #### 4. Figures in this study
 
 > All drawing codes are from `src/Figures/`
 
-* Figure 2(A) and (B)
+* Figure 2
 
-  > src/Figures/Figure2AB.ipynb
+  > src/Figures/Figure2.ipynb
 
-  
+  > Sankey diagram of the different datasets under WCSGNet's 5-fold cross-validation.  
 
-  > (A) Performance comparison of eight baseline methods across eight scRNA-seq datasets.   
-  >
-  > (B) Sankey diagram of the Baron Human dataset under WCSGNet's 5-fold cross-validation.  
-
-* Figure 3(A-D)
-
-  > src/Figures/Figure3A-D.ipynb
-
-  
-
-  > Performance of WCSGNet with EWCSN and WCSN, along with an analysis of its performance and robustness using different high-confidence gene networks for enhancement.  
-
-* Figure 4(A) and (B)
+* Figure 3(A) and (B)
 
   > src/Figures/Figure4AB.ipynb
 
   > Performance of WCSGNet with different edge weight representation methods, including the baseline method, LWT and UMA.  
 
-* Figure 5(A-N) 
+* Figure 4(A-N) 
+
+  > BaronHuman_analysis.ipynb
+  >
+  > src/Figures/R/Figure4A-M.R
+
+  >  Top degree gene analysis of WCSN for different cell types on the Baron Human dataset  
+
+* Figure 5(A-N)
 
   > BaronHuman_analysis.ipynb
   >
   > src/Figures/R/Figure5A-M.R
 
-  >  Top degree gene analysis of WCSN for different cell types on the Baron Human dataset  
-
-* Figure 6(A-N)
-
-  > BaronHuman_analysis.ipynb
-  >
-  > src/Figures/R/Figure6A-M.R
-
   > Top high-weight edges analysis of WCSNs for different cell types in the Baron Human dataset.   
 
-* Figure 7(A-N)
+* Figure 6(A-N)
 
   > BaronHuman_analysis.ipynb
 
   >  T-SNE visualization and feature analysis of the Baron Human dataset using WCSGNet.  
 
-* Figure 8(A-H)
+* Figure 7(A-H)
 
   > src/Figures/AMB_analysis.ipynb
   >
-  > src/Figures/R/Figure8A-D.R
+  > src/Figures/R/Figure7A-D.R
   >
-  > src/Figures/R/Figure8E.R
+  > src/Figures/R/Figure7E-H.R
   >
-  > src/Figures/R/Figure8F.R
-  >
-  > src/Figures/R/Figure8G.R
-  >
-  > src/Figures/R/Figure8H.R
-
+  
   > Analysis of top degree genes and high-weight edges in WCSN for Different Cell Types on the AMB Dataset. 
+  
+* Figure 8(A) and (B)
 
-* Figure 9(A) and (B)
-
-  > src/Figures/Figure9AB.ipynb
+  > src/Figures/Figure7AB.ipynb
 
   > Mean F1-score and accuracy comparison of WCSGNet on Muraro and Baron Mouse datasets curated with varying numbers of HVGs.
 
