@@ -332,7 +332,7 @@ This step generates the predicted results for the testing sets using WCSN(UWA) a
 
 * Figure 3(A) and (B)
 
-  > src/Figures/Figure4AB.ipynb
+  > src/Figures/Figure3AB.ipynb
 
   > Performance of WCSGNet with different edge weight representation methods, including the baseline method, LWT and UMA.  
 
@@ -354,7 +354,7 @@ This step generates the predicted results for the testing sets using WCSN(UWA) a
 
 * Figure 6(A-N)
 
-  > BaronHuman_analysis.ipynb
+  > src/Figure/Figure6.py
 
   >  T-SNE visualization and feature analysis of the Baron Human dataset using WCSGNet.  
 
