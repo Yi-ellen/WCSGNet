@@ -10,7 +10,7 @@ from torch_geometric.loader import DataLoader
 from scipy.sparse import load_npz
 import copy
 from model import CSGNet
-from datasets_LWT import MyDataset2
+from datasets_BT import MyDataset2
 
 pathjoin = os.path.join
 
@@ -20,7 +20,7 @@ def get_parser(parser=None):
     if parser == None:
         parser = argparse.ArgumentParser()
     parser.add_argument('-expr', type=str, default='dataset/pre_data/scRNAseq_datasets/Muraro.npz')  # Input file (NPZ format)
-    parser.add_argument('-outdir', type=str, default='result/models_LWT')  # Output directory
+    parser.add_argument('-outdir', type=str, default='result/models_BT')  # Output directory
     parser.add_argument('-cuda', '--cuda', type=bool, default=True)  # Use CUDA (GPU) for computation
     parser.add_argument('-bs', '--batch_size', type=int, default=32)  # Batch size for training
     parser.add_argument('-epoch', type=int, default=30)  # Number of epochs
@@ -29,7 +29,7 @@ def get_parser(parser=None):
     parser.add_argument('-addname', type=str, default="") 
     parser.add_argument('-nsp', '--n_splits', type=int, default=5)  # Number of splits for cross-validation
     parser.add_argument('-clist', '--channel_list', nargs='+', type=int, default=[256, 64], help='Model parameter list')  
-    parser.add_argument('-mc', '--mid_channel', type=int, default=16)  # Mid channel dimension
+    parser.add_argument('-mc', '--mid_channel', type=int, default=16)  
     parser.add_argument('-gcdim1', '--global_conv1_dim', type=int, default=12)  # First global convolution dimension
     parser.add_argument('-gcdim2', '--global_conv2_dim', type=int, default=4)  # Second global convolution dimension
     
@@ -39,7 +39,7 @@ def get_parser(parser=None):
 # Function to train the classification model
 def classify_train(args):
     """
-    Train a classification model using scRNA-seq data and WCSN(LWT).
+    Train a classification model using scRNA-seq data and WCSN(UMA).
 
     Args:
         args (Namespace): Command line arguments containing paths, hyperparameters, and settings.
@@ -108,7 +108,7 @@ def classify_train(args):
         cell_train_folder = os.path.join(csn_data_folder, f"train_f{k_fold}")
         filtered_genes_index = all_filtered_genes_array[k].astype(int)
         
-        # Create train dataset and dataloader, get WCSN(LWT)
+        # Create train dataset and dataloader, get WCSN(BT)
         train_dataset = MyDataset2(root=cell_train_folder, my_indices=train_index_imputed[k])
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=4)  
 

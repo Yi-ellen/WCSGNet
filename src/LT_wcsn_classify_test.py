@@ -9,7 +9,7 @@ from sklearn.metrics import f1_score, accuracy_score
 from torch_geometric.loader import DataLoader
 from scipy.sparse import load_npz
 
-from datasets_UWA import MyDataset2
+from datasets_LT import MyDataset2
 
 pathjoin = os.path.join
 
@@ -50,10 +50,10 @@ def classify_test(args):
 
     # Define directory paths for data and models
     seq_folder = pathjoin('dataset/5fold_data/', base_filename)
-    models_folder = pathjoin(save_folder, 'models_UWA')
+    models_folder = pathjoin(save_folder, 'models_LT')
     
-    os.makedirs(pathjoin(save_folder, 'preds_UWA'), exist_ok=True)
-    preds_folder = pathjoin(save_folder, 'preds_UWA')
+    os.makedirs(pathjoin(save_folder, 'preds_LT'), exist_ok=True)
+    preds_folder = pathjoin(save_folder, 'preds_LT')
     
     csn_data_folder = pathjoin(seq_folder, f"wcsn_a{csn_alpha}_hvgs{HVGs_num}")
 
@@ -83,9 +83,9 @@ def classify_test(args):
         filtered_genes_index = all_filtered_genes_array[k]
         filtered_genes_index = filtered_genes_index.astype(int)
 
-        # Create test dataset and loader, get EWCSN(UWA)
+        # Create test dataset and loader, get WCSN
         test_dataset = MyDataset2(root=cell_test_folder)
-        test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
+        test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
 
         # Load the model
         model_file = pathjoin(models_folder, f'{base_filename}_a{csn_alpha}_hvgs{HVGs_num}_model{addname}{k_fold}.pth')
@@ -191,4 +191,4 @@ if __name__ == '__main__':
     classify_test(args)
 
     end_time = time.time()
-    print(f"Code run time: {end_time - start_time} s")
+    print(f"Code run time: {end_time - start_time} seconds")

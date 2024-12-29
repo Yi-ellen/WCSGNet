@@ -29,17 +29,16 @@ class MyDataset2(Dataset):
 
     def get(self, idx):
         """
-        Loads and returns the processed data for a given index. This includes 
-        loading the edge indices and weights, performing necessary transformations 
-        (such as log1p on edge weights), and ensuring the symmetry of the graph's 
-        adjacency matrix by adding reverse edges.
-
+        Loads and returns the processed data for a given index. This includes loading the edge indices, 
+        setting edge weights to 1,and ensuring the symmetry of the graph's adjacency matrix by adding 
+        reverse edges.
+ 
         Args:
             idx (int): The index of the data sample to retrieve.
 
         Returns:
             torch_geometric.data.Data: The data object containing node features, 
-            edge indices, and edge weights, with symmetric edges and transformed weights. (WCSN_LWT)
+            edge indices, and edge weights, with symmetric edges and updated weights. (WCSN_BT)
         """
         # Retrieve the absolute index from the list of indices
         absolute_idx = self.my_indices[idx]
@@ -47,18 +46,17 @@ class MyDataset2(Dataset):
         data = torch.load(os.path.join(self.processed_dir, f'cell_{absolute_idx}.pt'))
         data.edge_index = data.edge_index.to(torch.int64)
         
-        # Get the current edge indices and edge weights from the loaded data
+        # Get the current edge indices
         edge_index = data.edge_index
-        edge_weight = data.edge_weight
         
-        # Apply log1p transformation to the edge weights (log(1 + x))
-        edge_weight = torch.log1p(edge_weight)
+        # Set the edge weights to 1 for the existing edges
+        edge_weight = torch.ones(edge_index.size(1), dtype=torch.float32)
 
-        # Generate symmetric edge indices (add reverse edges, i.e., (i, j) and (j, i))
+        # Generate symmetric edge indices by adding reverse edges (i.e., (i, j) and (j, i))
         row, col = edge_index
         symmetric_edge_index = torch.cat([edge_index, torch.stack([col, row])], dim=1)
         
-        # Generate symmetric edge weights (duplicate the weights for both directions)
+        # Generate symmetric edge weights by duplicating the weights
         symmetric_edge_weight = torch.cat([edge_weight, edge_weight])
 
         # Update the data object with the symmetric edge indices and weights
@@ -66,3 +64,10 @@ class MyDataset2(Dataset):
         data.edge_weight = symmetric_edge_weight
 
         return data
+
+
+
+
+
+
+
