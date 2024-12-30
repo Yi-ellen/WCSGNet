@@ -377,8 +377,11 @@ This step generates the predicted results for the testing sets using WCSN(binary
 
 #### 5. Repeatability
 
-The following factors may result in slight differences in the Mean F1-score and Accuracy for cell type classification when reproducing the results, compared to those reported in the paper. However, these differences do not have a disruptive impact on the conclusions of the paper:
+The following factors may result in slight differences in the Mean F1-score and Accuracy for cell type classification when reproducing the results, compared to those reported in the paper. 
 
 1. The DataLoader applies a shuffle operation on the training dataset during model training, leading to some randomness in the input sequence of the training data.
 2. The use of the Dropout mechanism in the model introduces variability in the trained models across different runs.
 3. Parameter initialization also produces some randomness.
+
+However, these differences do not have a disruptive impact on the conclusions of the paper.
+
