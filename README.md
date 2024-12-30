@@ -377,13 +377,6 @@ This step generates the predicted results for the testing sets using WCSN(binary
 
 #### 5. Repeatability
 
-以下会导致在进行复现时，细胞类型分类结果Mean F1-score 以及 Accuracy与论文中结果产生一定差异。但是不会对论文的结论产生颠覆性影响。
-
-* 模型训练时，DataLoader部分对训练集进行Shuffer操作，会导致输入训练集的顺序产生一定差异。
-* 模型中使用dropout，会使得每次训练得到的模型差生一定差异。
-
-
-
 The following factors may result in slight differences in the Mean F1-score and Accuracy for cell type classification when reproducing the results, compared to those reported in the paper. However, these differences do not have a disruptive impact on the conclusions of the paper:
 
 1. The DataLoader applies a shuffle operation on the training dataset during model training, leading to some randomness in the input sequence of the training data.
