@@ -37,6 +37,10 @@
   >
   > `Mouse_genes_ncbi2.ipynb`:  Jupyter notebooks for preprocessing mouse genes.
   
+* Figures
+
+  > This folder contains code for drawing.
+
 * data_partitioning.py
 
   > This file stores the five-fold cross-validation splits for the corresponding dataset.  The generated files will be stored in the `dataset/5fold_data` folder.  
@@ -481,44 +485,44 @@ This step generates the predicted results for the testing sets using WCSN(PCA-PM
 
   > Performance of WCSGNet with different edge weight representation methods, including the original method, binary transformation and binary transformation  .  
 
-* Figure 4(A-N) 
+* Figure 6(A-N) 
 
   > BaronHuman_analysis.ipynb
   >
-  > src/Figures/R/Figure4A-M.R
+  > src/Figures/R/Figure-hub-genes.R
 
   >  Top degree gene analysis of WCSN for different cell types on the Baron Human dataset  
 
-* Figure 5(A-N)
+* Figure 7(A-N)
 
   > BaronHuman_analysis.ipynb
   >
-  > src/Figures/R/Figure5A-M.R
+  > src/Figures/R/Figure-high-weight.R
 
   > Top high-weight edges analysis of WCSNs for different cell types in the Baron Human dataset.   
 
-* Figure 6(A-N)
+* Figure 8(A-N)
 
-  > src/Figure/Figure6.py
+  > src/Figure/Figure-tsne.py
 
   >  T-SNE visualization and feature analysis of the Baron Human dataset using WCSGNet.  
 
-* Figure 7(A-H)
+* Figure 9(A-H)
 
   > src/Figures/AMB_analysis.ipynb
   >
-  > src/Figures/R/Figure7A-D.R
+  > src/Figures/R/Figure-AMB-gene.R
   >
-  > src/Figures/R/Figure7E-H.R
+  > src/Figures/R/Figure-AMB-edge.R
   >
 
   > Analysis of top degree genes and high-weight edges in WCSN for Different Cell Types on the AMB Dataset. 
 
-* Figure 8(A) and (B)
+* Figure S1
 
-  > src/Figures/Figure7AB.ipynb
+  > src/Figures/Figure-log.py
 
-  > Mean F1-score and accuracy comparison of WCSGNet on Muraro and Baron Mouse datasets curated with varying numbers of HVGs.
+  > Distribution of edge weights before and after logarithmic transformation for the training sets in five-fold cross-validation across all datasets including Zhang T, Kang, Zheng 68k, Baron Human, Muraro, Segerstolpe, AMB, TM and Baron Mouse.  
 
 #### 5. Repeatability
 

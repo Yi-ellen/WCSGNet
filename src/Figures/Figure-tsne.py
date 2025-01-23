@@ -88,12 +88,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6A_true.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneA_true.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6A_true.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneA_true.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -125,12 +125,12 @@ for k in lst:
     plt.ylabel('t-SNE 2', fontsize=14,fontweight='bold')
 
     plt.tight_layout()
-    plt.savefig(f'../../result/Figures/Figure_6B_pred.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneB_pred.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6B_pred.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneB_pred.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -172,12 +172,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6E.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneE.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6E.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneE.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -211,12 +211,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6G.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneG.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6G.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneG.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -250,12 +250,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6D.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneD.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6D.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneD.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -291,12 +291,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6C.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneC.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6C.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneC.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -331,12 +331,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6F.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneF.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6F.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneF.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -369,12 +369,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6H.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneH.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6H.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneH.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -416,12 +416,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6K.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneK.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6K.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneK.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -456,12 +456,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6L.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneL.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6L.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneL.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -495,12 +495,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6I.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneI.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6I.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneI.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -537,12 +537,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6N.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneN.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6N.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneN.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -582,12 +582,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_6M.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneM.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_6M.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneM.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')
@@ -624,12 +624,12 @@ for k in lst:
 
     plt.tight_layout()
 
-    plt.savefig(f'../../result/Figures/Figure_7J.svg', 
+    plt.savefig(f'../../result/Figures/Figure_tsneJ.svg', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='svg')
 
-    plt.savefig(f'../../result/Figures/Figure_7J.png', 
+    plt.savefig(f'../../result/Figures/Figure_tsneJ.png', 
                 dpi=1200, 
                 bbox_inches='tight',
                 format='png')

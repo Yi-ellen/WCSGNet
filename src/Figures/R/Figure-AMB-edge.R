@@ -86,7 +86,7 @@ for (folder in top_edges_folders) {
 
 
 
-# Figure 7H
+# Figure H
 
 data <- read.table("../data/AMB/AMB_top_edges/union_edges.tsv", header = TRUE, sep = "\t", fill = TRUE, na.strings ="")
 set1 <- unique(na.omit(data$GABAergic)) 
