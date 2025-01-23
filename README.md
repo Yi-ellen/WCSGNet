@@ -262,7 +262,7 @@
 
   This step generates a `.npy` file for each dataset, containing 2000 HVGs. The file stores the indices of the highly variable genes in the gene expression matrix.
 
-##### 3.1.2 Different gene association network construction methods.
+##### 3.1.3 Different gene association network construction methods.
 
 * WGCNA: R package "WGCNA"  
 * PCA-PMI: https://github.com/Pantrick/PCA-PMI  
