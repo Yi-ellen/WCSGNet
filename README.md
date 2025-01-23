@@ -359,7 +359,7 @@ The optional parameters are mostly the same as those in wcsn_classify_test.py.
 
 This step generates the predicted results for the testing sets using WCSN(logarithmic transformation) and saves them in `result/preds_LT`. The results include `*_Prediction.h5` and `*_F1.csv`.
 
-##### 3.3.4 Training and prediction using WCSN(binary transformation)
+##### 3.3.3 Training and prediction using WCSN(binary transformation)
 
 **Training**
 
@@ -377,7 +377,7 @@ The optional parameters are mostly the same as those in wcsn_classify_test.py.
 
 This step generates the predicted results for the testing sets using WCSN(binary transformation) and saves them in `result/preds_BT`.  The results include `*_Prediction.h5` and `*_F1.csv`.
 
-##### 3.3.5 Training and prediction using WCSN(WGCNA)
+##### 3.3.4 Training and prediction using WCSN(WGCNA)
 
 **Network Construction**
 
@@ -403,7 +403,7 @@ The optional parameters are mostly the same as those in wgcna_classify_train.py.
 
 This step generates the predicted results for the testing sets using WCSN(WGCNA) and saves them in `result/wgcna_preds`.  The results include `*_Prediction.h5` and `*_F1.csv`.
 
-##### 3.3.6 Training and prediction using WCSN(GRNBoost2)
+##### 3.3.5 Training and prediction using WCSN(GRNBoost2)
 
 **Network Construction**
 
@@ -429,7 +429,7 @@ The optional parameters are mostly the same as those in grnboost2_classify_test.
 
 This step generates the predicted results for the testing sets using WCSN(GRNBoost2) and saves them in `result/grnboost2_preds`.  The results include `*_Prediction.h5` and `*_F1.csv`.
 
-##### 3.3.7 Training and prediction using WCSN(PCA-PMI)
+##### 3.3.6 Training and prediction using WCSN(PCA-PMI)
 
 **Network Construction**
 
